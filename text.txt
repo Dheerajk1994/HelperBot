@@ -1,0 +1,10 @@
+client id: 542185995874074656
+client secret: ubjcfV95Ak04M9fq5brB_NQgBM2hbHS5
+bot token: NTQyMTg1OTk1ODc0MDc0NjU2.DzqWWA.Bgm4DEcOXvIsE7r_EnRnsh5O0hk
+
+https://discordapp.com/api/oauth2/authorize?client_id=542185995874074656&scope=bot&permissions=0
+
+
+commands: 
+node .  //turns on bot
+ctrl c  //disables bot
