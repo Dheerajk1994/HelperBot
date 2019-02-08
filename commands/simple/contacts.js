@@ -48,19 +48,20 @@ class ContactsCommand  extends commando.Command{
 
             }
             if(msgArgs[1] === 'get' && msgArgs.length === 3){//GETS AN ENTRY
-                let sql = `SELECT * FROM contactinfo WHERE nickname = '${msgArgs[2].toLowerCase}'`;
-                connection.query(sql, function(err, result, fields){
+                let sql = `SELECT * FROM contactinfo WHERE nickname = '${msgArgs[2].toLowerCase()}';`;
+                connection.query(sql, function(err, rows){
                     if(err){
-                        onsole.log(err); 
-                        message.channel.sendMessage("Uh oh! Couldnt find that nickname in the db!");
+                        console.log(err); 
+                        return message.channel.sendMessage("Uh oh! Couldnt find that nickname in the db!");
                     }
                     else{
+                        if (typeof rows == 'undefined') return message.channel.sendMessage("Uh oh! Couldnt find that nickname in the db!");
                         var msg = '';
-                        /*msg += "Firstname: " + result.firstname + '\n' +
-                               "Lasttname: " + result.lastname + '\n' + 
-                               "Phone    : " + result.phone + '\n' +
-                               "Email    : " + result.email + '\n';*/
-                        message.channel.sendMessage(result[0].nickname);
+                        msg += "Firstname: " + rows[0].firstname + '\n' +
+                               "Lastname : " + rows[0].lastname + '\n' + 
+                               "Phone    : " + rows[0].phone + '\n' +
+                               "Email    : " + rows[0].email + '\n';
+                        message.channel.sendMessage(msg);
                     }
                 });
                 return;

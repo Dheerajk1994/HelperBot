@@ -1,13 +1,13 @@
 const commando = require('discord.js-commando');
 
-class RoleCommand extends commando.Command{
+class RollCommand extends commando.Command{
 
     constructor(client){
         super(client, 
-            {name: 'role', 
+            {name: 'roll', 
              group: 'simple',
-             memberName: 'role',
-             description: 'Roles a value between 0 and 100'}            
+             memberName: 'roll',
+             description: 'Rolls a value between 0 and 100'}            
             );   
     }
 
@@ -21,4 +21,4 @@ class RoleCommand extends commando.Command{
 
 }
 
-module.exports = RoleCommand;
+module.exports = RollCommand;
